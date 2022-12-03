@@ -1,11 +1,13 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import * as S from './styles'
+
 
 const Login = () => {
   return (
-    <View>
-      <Text>Tela de Login</Text>
-    </View>
+    <S.Container>
+      <Text>Tela de Login1</Text>
+    </S.Container>
   );
 }
 

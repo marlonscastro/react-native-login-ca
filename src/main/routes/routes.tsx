@@ -7,7 +7,7 @@ const Stack = createStackNavigator()
 export function MyStack() {
     return (
         <Stack.Navigator screenOptions={{
-            headerShown: true
+            headerShown: false
         }}>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
