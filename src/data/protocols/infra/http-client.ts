@@ -1,5 +1,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { StatusCodes } from 'http-status-codes'
+
 export enum HttpStatusCode {
   ok = 200,
   noContent = 204,
@@ -14,7 +16,7 @@ export enum HttpStatusCode {
 export type HttpMethod = 'post' | 'get' | 'put' | 'delete' | 'patch'
 
 export type HttpResponse<T = any> = {
-  statusCode: HttpStatusCode
+  statusCode: StatusCodes
   body?: T
 }
 

@@ -1,3 +1,4 @@
+import { StatusCodes } from "http-status-codes";
 import { Login } from "../../domain/use-cases/login";
 import { HttpClient } from "../protocols/infra";
 
@@ -7,7 +8,24 @@ export class RemoteLogin implements Login {
     private readonly httpClient: HttpClient
   ) { }
 
-  execute(params: Login.Params): Promise<Login.Model> {
+  public async execute(params: Login.Params): Promise<Login.Model> {
+    const httpResponse  = await this.httpClient.request({
+      url: this.url,
+      method: 'post',
+      body: {
+        user: params.user,
+        password: params.password
+      }
+    })
+
+      switch (httpResponse.statusCode) {
+        case StatusCodes.OK:
+          
+          break;
+      
+        default:
+          break;
+      }
 
   }
 }
