@@ -11,7 +11,7 @@ export enum HttpStatusCode {
   serverError = 500,
   badGateway = 502,
 }
-export type HttpMethod = 'post' | 'get' | 'put' | 'delete'
+export type HttpMethod = 'post' | 'get' | 'put' | 'delete' | 'patch'
 
 export type HttpResponse<T = any> = {
   statusCode: HttpStatusCode
