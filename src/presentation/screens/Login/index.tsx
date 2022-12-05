@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Text, View } from 'react-native'
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter'
 
