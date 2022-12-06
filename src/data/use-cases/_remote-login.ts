@@ -1,6 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import { AccessDeniedError, InvalidCredentialsError, UnexpectedError } from "../../domain/errors";
 import { Login } from "../../domain/use-cases/login";
+import { HttpMethod } from "../protocols/http";
 import { HttpClient } from "../protocols/infra";
 export class RemoteLogin implements Login {
   constructor(
@@ -11,7 +12,7 @@ export class RemoteLogin implements Login {
   public async execute(params: Login.Params): Promise<Login.Model> {
     const httpResponse = await this.httpClient.request({
       url: this.url,
-      method: 'post',
+      method: HttpMethod.POST,
       body: {
         user: params.user,
         password: params.password

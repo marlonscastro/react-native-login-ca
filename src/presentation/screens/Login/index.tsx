@@ -5,9 +5,11 @@ import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter'
 import * as S from './styles'
 
 const Login = () => {
+
   let [fontsLoaded] = useFonts({
     Inter_400Regular
   })
+  
   if (!fontsLoaded) {
     return <View />
   } else {
