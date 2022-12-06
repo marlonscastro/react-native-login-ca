@@ -16,6 +16,7 @@ export enum HttpStatusCode {
 export type HttpMethod = 'post' | 'get' | 'put' | 'delete' | 'patch'
 
 export type HttpResponse<T = any> = {
+  message?: string
   statusCode: StatusCodes
   body?: T
 }
