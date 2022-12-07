@@ -1,8 +1,8 @@
 import { StatusCodes } from "http-status-codes";
-import { AccessDeniedError, InvalidCredentialsError, UnexpectedError } from "../../domain/errors";
-import { Login } from "../../domain/use-cases/login";
-import { HttpMethod } from "../protocols/http";
-import { HttpClient } from "../protocols/infra";
+import { AccessDeniedError, InvalidCredentialsError, UnexpectedError } from "@domain/errors";
+import { Login } from "@domain/use-cases/login";
+import { HttpMethod } from "@data/protocols/http";
+import { HttpClient } from "@data/protocols/infra";
 export class RemoteLogin implements Login {
   constructor(
     private readonly url: string,

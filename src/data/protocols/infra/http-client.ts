@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { StatusCodes } from 'http-status-codes'
-import { HttpMethod } from '../http'
+import { HttpMethod } from '@data/protocols/http'
 
 export enum HttpStatusCode {
   ok = 200,
