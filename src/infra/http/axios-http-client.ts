@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios'
 import {
-  HttpRequest,
-  HttpResponse,
   HttpClient,
 } from '@data/protocols/infra'
-
+import { HttpRequest, HttpResponse } from '@data/protocols/http'
 axios.defaults.validateStatus = () => true
 
 export class AxiosAdapter<T = any> implements HttpClient {
@@ -16,10 +14,7 @@ export class AxiosAdapter<T = any> implements HttpClient {
         url: data.url,
         method: data.method,
         data: data.body,
-        headers: {
-          ...data.headers,
-          'Content-Type': 'application/json',
-        },
+        headers: data.headers
       })
 
       return {
