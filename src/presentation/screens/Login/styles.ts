@@ -6,3 +6,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
 `;
+
+export const Input = styled.TextInput`
+  border: 1px solid #ccc;
+`

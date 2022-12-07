@@ -1,12 +1,12 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import { makeLoginScreen } from '@main/factories/screens'
 
-const Stack = createStackNavigator()
+const { Navigator, Screen }  = createStackNavigator()
 
 export default function AuthStack() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Login" component={makeLoginScreen} />
-    </Stack.Navigator>
+    <Navigator screenOptions={{ headerShown: false }}>
+      <Screen name="Login">{makeLoginScreen}</Screen>
+    </Navigator>
   )
 }
