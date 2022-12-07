@@ -1,12 +1,12 @@
 import { createStackNavigator } from '@react-navigation/stack'
-import Home from '@presentation/screens/Home'
+import { makeHomeScreen } from '@main/factories/screens'
 
 const Stack = createStackNavigator()
 
 export default function AppStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={makeHomeScreen} />
     </Stack.Navigator>
   )
 }
