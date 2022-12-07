@@ -4,7 +4,7 @@ import {
   HttpRequest,
   HttpResponse,
   HttpClient,
-} from '../../../data/protocols/infra'
+} from '../../data/protocols/infra'
 
 axios.defaults.validateStatus = () => true
 
