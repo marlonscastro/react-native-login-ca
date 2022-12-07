@@ -1,10 +1,9 @@
 import { Login } from '../../../presentation/screens'
 import React from 'react'
-import { RemoteLogin } from '../../../data/use-cases'
+import { makeRemoteLogin } from '../use-cases/_remote_login'
 
 export const makeLoginScreen = () => (
-  <SignInScreen
-    ebic={makeRemoteEBICAuthentication()}
-    ldap={makeRemoteLDAPAuthentication()}
+  <Login
+     login={makeRemoteLogin()}
   />
 )
