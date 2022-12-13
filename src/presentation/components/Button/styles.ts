@@ -6,7 +6,7 @@ export const Button = styled.TouchableOpacity`
   background-color: #FF4C66;
   border-radius: 10px;
   height: 45px;
-  width: ${responsiveWidth(80)};
+  width: ${responsiveWidth(80)}px;
   justify-content: center;
   align-items: center;
 `
