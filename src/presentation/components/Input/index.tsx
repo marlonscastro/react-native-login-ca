@@ -22,7 +22,7 @@ export default function Input({ placeholder, type }: Props) {
         autoCorrect={false}
         autoComplete='off'
         placeholder={placeholder}
-        secureTextEntry={!show}
+        secureTextEntry={type === InputTypes.password ? !show: false}
       >
       </S.Input>
       {
