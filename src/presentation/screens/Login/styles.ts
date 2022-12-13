@@ -67,4 +67,6 @@ export const LogoFooter = styled.View`
   border-width: 1px;
   border-color: #fff;
   border-radius: 8px;
+  align-items: center;
+  justify-content: center;
 `
