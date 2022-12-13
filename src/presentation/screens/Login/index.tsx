@@ -1,8 +1,8 @@
 import React from 'react'
-import { KeyboardAvoidingView, Text, View } from 'react-native'
-import { useFonts, Roboto_500Medium } from '@expo-google-fonts/roboto'
+import { View, Text } from 'react-native'
+import { useFonts, Poppins_700Bold } from '@expo-google-fonts/poppins'
 import { Login as LoginUseCase } from '@domain/use-cases'
-import Input from '@presentation/components/Input'
+import { Button, Input } from '@presentation/components'
 
 import * as S from './styles'
 
@@ -13,7 +13,7 @@ type Props = {
 const Login = ({ login }: Props) => {
 
   let [fontsLoaded] = useFonts({
-    Roboto_500Medium
+    Poppins_700Bold
   })
 
   if (!fontsLoaded) {
@@ -21,11 +21,21 @@ const Login = ({ login }: Props) => {
   } else {
     return (
       <S.Container>
-        <Text style={{ fontSize: 20, fontFamily: 'Roboto_500Medium', color: '#fff'}}>
-          Tela de Login10
-        </Text>
-        <Input placeholder='User' />
+        <S.Title>Hello Again!</S.Title>
+
+        <S.Subtitle>Wellcome back you've been missed</S.Subtitle>
+
+        <Input placeholder='Enter username' />
         <Input placeholder='Password' />
+
+        <S.RecoveryText>
+          <Text>
+            Recovery Password
+          </Text>
+        </S.RecoveryText>
+
+        <Button text='Sign In'/>
+
       </S.Container>
     )
   }
