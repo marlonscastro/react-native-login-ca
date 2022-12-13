@@ -6,8 +6,6 @@ export const Container = styled.KeyboardAvoidingView`
   background-color: #efedef;
   align-items: center;
   justify-content: center;
-  border-width: 1px;
-  border-color: #f00;
 `;
 
 export const Header = styled.View`
@@ -40,4 +38,33 @@ export const RecoveryText = styled.Text`
   font-size: 11px;
   font-weight: bold;
   color: #878296;
+`
+
+export const TitleFooter = styled.View`
+  width: ${responsiveWidth(80)}px;
+  margin-top: 30px;
+  align-items: center;
+`
+
+export const TextFooter = styled.Text`
+  font-size: 11px;
+  font-weight: bold;
+  color: #878296;
+`
+
+export const Footer = styled.View`
+  width: ${responsiveWidth(80)}px;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-top: 30px;
+`
+
+export const LogoFooter = styled.View`
+  width: 60px;
+  height: 45px;
+  background-color: #EFEDEF;
+  border-width: 1px;
+  border-color: #fff;
+  border-radius: 8px;
 `

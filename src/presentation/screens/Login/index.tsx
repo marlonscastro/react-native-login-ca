@@ -4,6 +4,7 @@ import { Login as LoginUseCase } from '@domain/use-cases'
 import { Button, Input } from '@presentation/components'
 
 import * as S from './styles'
+import { InputTypes } from '@presentation/components/Input'
 
 type Props = {
   login: LoginUseCase
@@ -27,8 +28,8 @@ const Login = ({ login }: Props) => {
           <S.Subtitle style={{ fontFamily: 'Poppins_300Light' }}>Wellcome back you've been missed</S.Subtitle>
         </S.Header>
 
-        <Input placeholder='Enter username' />
-        <Input placeholder='Password' />
+        <Input placeholder='Enter username'/>
+        <Input placeholder='Password' type={InputTypes.password}/>
 
         <S.RecoveryButton>
           <S.RecoveryText>
@@ -38,6 +39,18 @@ const Login = ({ login }: Props) => {
 
         <Button text='Sign In' />
 
+        <S.TitleFooter>
+          <S.TextFooter>
+            Or continue with
+          </S.TextFooter>
+        </S.TitleFooter>
+
+        <S.Footer>
+          <S.LogoFooter>
+          </S.LogoFooter>
+          <S.LogoFooter />
+          <S.LogoFooter />
+        </S.Footer>
       </S.Container>
     )
   }
