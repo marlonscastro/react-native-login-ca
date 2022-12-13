@@ -2,9 +2,9 @@ import React from 'react'
 import { KeyboardAvoidingView, Text, View } from 'react-native'
 import { useFonts, Roboto_500Medium } from '@expo-google-fonts/roboto'
 import { Login as LoginUseCase } from '@domain/use-cases'
+import Input from '@presentation/components/Input'
 
 import * as S from './styles'
-import { TextInput } from 'react-native-gesture-handler'
 
 type Props = {
   login: LoginUseCase
@@ -24,8 +24,8 @@ const Login = ({ login }: Props) => {
         <Text style={{ fontSize: 20, fontFamily: 'Roboto_500Medium', color: '#fff'}}>
           Tela de Login10
         </Text>
-        <S.Input placeholder='User' />
-        <S.Input placeholder='Password' />
+        <Input placeholder='User' />
+        <Input placeholder='Password' />
       </S.Container>
     )
   }
