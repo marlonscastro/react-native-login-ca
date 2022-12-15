@@ -4,7 +4,6 @@ import { responsiveWidth } from 'react-native-responsive-dimensions'
 export const ContainerInput = styled.View`
 
 `
-
 export const InputBox = styled.View`
   padding: 8px 15px;
   width: ${responsiveWidth(80)}px;

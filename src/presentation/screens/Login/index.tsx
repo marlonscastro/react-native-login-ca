@@ -2,7 +2,7 @@ import React from 'react'
 import { useFonts, Poppins_700Bold, Poppins_300Light } from '@expo-google-fonts/poppins'
 import { Image } from 'react-native'
 import { Login as LoginUseCase } from '@domain/use-cases'
-import { Button, Input } from '@presentation/components'
+import { Button, Input, RecoveryPasswordButton } from '@presentation/components'
 
 import * as S from './styles'
 import { InputTypes } from '@presentation/components/Input'
@@ -32,11 +32,7 @@ const Login = ({ login }: Props) => {
         <Input placeholder='Enter username' />
         <Input placeholder='Password' type={InputTypes.password} />
 
-        <S.RecoveryButton>
-          <S.RecoveryPassword>
-            Recovery Password
-          </S.RecoveryPassword>
-        </S.RecoveryButton>
+        <RecoveryPasswordButton message='Recovery password' />
 
         <Button text='Sign In' />
 
