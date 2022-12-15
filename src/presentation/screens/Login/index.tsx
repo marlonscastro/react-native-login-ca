@@ -3,9 +3,6 @@ import { useFonts, Poppins_700Bold, Poppins_300Light } from '@expo-google-fonts/
 import { Image } from 'react-native'
 import { Login as LoginUseCase } from '@domain/use-cases'
 import { Button, Input } from '@presentation/components'
-// import logogoogle from '../../assets/google-logo.png'
-// import LogoFacebook from '../../assets/facebook-logo.png'
-// import LogoApple from '../../assets/apple-logo.png'
 
 import * as S from './styles'
 import { InputTypes } from '@presentation/components/Input'
@@ -36,9 +33,9 @@ const Login = ({ login }: Props) => {
         <Input placeholder='Password' type={InputTypes.password} />
 
         <S.RecoveryButton>
-          <S.RecoveryText>
+          <S.RecoveryPassword>
             Recovery Password
-          </S.RecoveryText>
+          </S.RecoveryPassword>
         </S.RecoveryButton>
 
         <Button text='Sign In' />

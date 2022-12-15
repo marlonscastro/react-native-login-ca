@@ -30,11 +30,11 @@ export const Subtitle = styled.Text`
 
 export const RecoveryButton = styled.TouchableOpacity`
   align-items: flex-end;
-  margin: 15px 0px 25px;
+  margin: 0px 0px 25px;
   width: ${responsiveWidth(80)}px;
 `
 
-export const RecoveryText = styled.Text`
+export const RecoveryPassword = styled.Text`
   font-size: 11px;
   font-weight: bold;
   color: #878296;
