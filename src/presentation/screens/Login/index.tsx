@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFonts, Poppins_700Bold, Poppins_300Light } from '@expo-google-fonts/poppins'
-import { Image } from 'react-native'
+import { Image, TextInput } from 'react-native'
+import { useForm } from 'react-hook-form'
 import { Login as LoginUseCase } from '@domain/use-cases'
 import { Button, Input, RecoveryPasswordButton } from '@presentation/components'
 
@@ -12,6 +13,11 @@ type Props = {
 }
 
 const Login = ({ login }: Props) => {
+  const { control, handleSubmit } = useForm()
+
+  const handleData = (data: any) => {
+    console.log(data)
+  }
 
   let [fontsLoaded] = useFonts({
     Poppins_700Bold,
@@ -25,16 +31,15 @@ const Login = ({ login }: Props) => {
       <S.Container>
         <S.Header>
           <S.Title style={{ fontFamily: 'Poppins_700Bold' }}>Hello Again!</S.Title>
-
           <S.Subtitle style={{ fontFamily: 'Poppins_300Light' }}>Wellcome back you've been missed</S.Subtitle>
         </S.Header>
 
-        <Input placeholder='Enter username' />
-        <Input placeholder='Password' type={InputTypes.password} />
+        <Input name='username' placeholder='Enter username' control={control}/>
+        <Input name='password' placeholder='Password' type={InputTypes.password} control={control}/>
 
-        <RecoveryPasswordButton message='Recovery password' />
+        <RecoveryPasswordButton text='Recovery password' />
 
-        <Button text='Sign In' />
+        <Button text='Sign In' onPress={() => console.log('teste')}/>
 
         <S.TitleFooter>
           <S.TextFooter>

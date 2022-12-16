@@ -2,14 +2,14 @@ import React from "react";
 import * as S from './styles'
 
 type Props = {
-  message: string
+  text: string
 }
 
-export default function RecoveryPasswordButton({ message }: Props) {
+export default function RecoveryPasswordButton({ text }: Props) {
   return (
     <S.RecoveryButton>
       <S.RecoveryPassword>
-        {message}
+        {text}
       </S.RecoveryPassword>
     </S.RecoveryButton>
   )
