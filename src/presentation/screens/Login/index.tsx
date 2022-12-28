@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFonts, Poppins_700Bold, Poppins_300Light } from '@expo-google-fonts/poppins'
-import { Image, Text, TouchableOpacity } from 'react-native'
-import { useForm } from 'react-hook-form'
+import { Image } from 'react-native'
+import { FieldValue, Resolver, useForm } from 'react-hook-form'
 import { Login as LoginUseCase } from '@domain/use-cases'
 import { Button, Input, RecoveryPasswordButton } from '@presentation/components'
 
@@ -12,8 +12,27 @@ type Props = {
   login: LoginUseCase
 }
 
+type LoginData = {
+  username: string
+  password: string
+}
+
+const resolver: Resolver<LoginData> = async (values) => {
+  return {
+    values: values.username ? values : {},
+    errors: !values.username
+      ? {
+        username: {
+          type: 'required',
+          message: 'This is required'
+        }
+      }
+      : {},
+  }
+}
+
 const Login = ({ login }: Props) => {
-  const { control, handleSubmit } = useForm()
+  const { control, handleSubmit } = useForm<LoginData>({ resolver })
 
   const handleData = (data: any) => {
     console.log(data)
@@ -34,12 +53,12 @@ const Login = ({ login }: Props) => {
           <S.Subtitle style={{ fontFamily: 'Poppins_300Light' }}>Wellcome back you've been missed</S.Subtitle>
         </S.Header>
 
-        <Input name='username' placeholder='Enter username' control={control}/>
-        <Input name='password' placeholder='Password' type={InputTypes.password} control={control}/>
+        <Input name='username' placeholder='Enter username' control={control} />
+        <Input name='password' placeholder='Password' type={InputTypes.password} control={control} />
 
         <RecoveryPasswordButton text='Recovery password' />
 
-        <Button text='Login' onPress={() => console.warn('Teste222')}/>
+        <Button text='Login' onPress={handleSubmit(handleData)} />
 
         <S.TitleFooter>
           <S.TextFooter>
