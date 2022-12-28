@@ -4,6 +4,8 @@ import { Image } from 'react-native'
 import { useForm } from 'react-hook-form'
 import { Login as LoginUseCase } from '@domain/use-cases'
 import { Button, ControlledInput, RecoveryPasswordButton } from '@presentation/components'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import * as S from './styles'
 import { InputTypes } from '@presentation/components/Input'
@@ -17,10 +19,18 @@ type LoginData = {
   password: string
 }
 
-const Login = ({ login }: Props) => {
-  const { control, handleSubmit } = useForm<LoginData>()
+const schema = yup.object({
+  username: yup.string().required("type your usename"),
+  password: yup.string().min(6, "password should have 6 caracters at least").required("type your password")
+})
 
-  const handleData = (data: any) => {
+const Login = ({ login }: Props) => {
+  const { control, handleSubmit, formState: { errors } } = useForm<LoginData>({
+    resolver: yupResolver(schema),
+    mode: 'all'
+  })
+
+  const handleLoginData = (data: any) => {
     console.log(data)
   }
 
@@ -39,21 +49,23 @@ const Login = ({ login }: Props) => {
           <S.Subtitle style={{ fontFamily: 'Poppins_300Light' }}>Wellcome back you've been missed</S.Subtitle>
         </S.Header>
 
-        <ControlledInput 
-          name='username' 
+        <ControlledInput
+          name='username'
           control={control}
-          placeholder='Enter username' 
+          placeholder='Enter username'
+          error={errors.username}
         />
-        <ControlledInput 
-          name='password' 
-          control={control}        
-          placeholder='Enter password' 
+        <ControlledInput
+          name='password'
+          control={control}
+          placeholder='Enter password'
           type={InputTypes.password}
+          error={errors.password}
         />
 
         <RecoveryPasswordButton text='Recovery password' />
 
-        <Button text='Login' onPress={handleSubmit(handleData)} />
+        <Button text='Login' onPress={handleSubmit(handleLoginData)} />
 
         <S.TitleFooter>
           <S.TextFooter>
@@ -76,5 +88,6 @@ const Login = ({ login }: Props) => {
     )
   }
 }
+
 
 export default Login;
