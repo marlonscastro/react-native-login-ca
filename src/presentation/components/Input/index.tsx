@@ -1,41 +1,31 @@
 import React, { useState } from 'react'
 import { TextInputProps } from 'react-native'
-import { Control, FieldValues, useController } from 'react-hook-form'
 import Ionicons from '@expo/vector-icons/Ionicons'
 import * as S from './styles'
-
+ 
 export enum InputTypes {
-  password = 1
+  password = 1,
+  basic = 2
 }
 
-type Props = {
-  name: string
-  control: Control<FieldValues, any>
-  placeholder: string
+export type InputProps = TextInputProps & {
   type?: InputTypes
   error?: boolean
-} & TextInputProps 
+}
 
-export default function Input({ name, control, placeholder, type, error }: Props) {
+export default function Input({ placeholder, type, error, ...rest }: InputProps) {
   const [show, setShow] = useState(false)
-
-  const { field } = useController({
-    control,
-    defaultValue: '',
-    name
-  })
 
   return (
     <S.ContainerInput>
       <S.InputBox>
         <S.Input
-          value={field.value}
-          onChangeText={field.onChange}
           autoCapitalize='none'
           autoCorrect={false}
           autoComplete='off'
           placeholder={placeholder}
           secureTextEntry={type === InputTypes.password ? !show : false}
+          {...rest}
         />
         {
           type === InputTypes.password ?
