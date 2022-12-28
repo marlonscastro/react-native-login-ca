@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFonts, Poppins_700Bold, Poppins_300Light } from '@expo-google-fonts/poppins'
-import { Image, TextInput } from 'react-native'
+import { Image, Text, TouchableOpacity } from 'react-native'
 import { useForm } from 'react-hook-form'
 import { Login as LoginUseCase } from '@domain/use-cases'
 import { Button, Input, RecoveryPasswordButton } from '@presentation/components'
@@ -39,7 +39,7 @@ const Login = ({ login }: Props) => {
 
         <RecoveryPasswordButton text='Recovery password' />
 
-        <Button text='Sign In' onPress={() => console.log('teste')}/>
+        <Button text='Login' onPress={() => console.warn('Teste222')}/>
 
         <S.TitleFooter>
           <S.TextFooter>

@@ -7,10 +7,10 @@ type Props = {
   text: string
 } & TouchableOpacityProps
 
-export default function Button({ text }: Props ) {
+export default function Button(props: Props) {
   return (
-    <S.Button>
-      <S.TextButton>{text}</S.TextButton>
+    <S.Button onPress={props.onPress}>
+      <S.TextButton>{props.text}</S.TextButton>
     </S.Button>
   )
 }
