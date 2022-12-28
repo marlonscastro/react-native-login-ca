@@ -6,10 +6,10 @@ import { Error } from './styles'
 type Props = InputProps & {
   control: Control<any>
   name: string
-  error?: FieldError
+  fieldError?: FieldError
 }
 
-export default function ControlledInput({ control, name, error, ...rest }: Props) {
+export default function ControlledInput({ control, name, fieldError, ...rest }: Props) {
   return (
     <>
       <Controller
@@ -24,7 +24,7 @@ export default function ControlledInput({ control, name, error, ...rest }: Props
         )}
       />
       {
-        error && <Error>{error.message}</Error>
+        fieldError && <Error>{fieldError.message}</Error>
       }
     </>
   )

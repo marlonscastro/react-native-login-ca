@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFonts, Poppins_700Bold, Poppins_300Light } from '@expo-google-fonts/poppins'
 import { Image } from 'react-native'
-import { useForm } from 'react-hook-form'
+import { FieldError, useForm } from 'react-hook-form'
 import { Login as LoginUseCase } from '@domain/use-cases'
 import { Button, ControlledInput, RecoveryPasswordButton } from '@presentation/components'
 import * as yup from 'yup'
@@ -53,14 +53,15 @@ const Login = ({ login }: Props) => {
           name='username'
           control={control}
           placeholder='Enter username'
-          error={errors.username}
+          fieldError={errors.username}
         />
         <ControlledInput
           name='password'
           control={control}
           placeholder='Enter password'
           type={InputTypes.password}
-          error={errors.password}
+          fieldError={errors.password}
+          maxLength={20}
         />
 
         <RecoveryPasswordButton text='Recovery password' />
