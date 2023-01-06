@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFonts, Poppins_700Bold, Poppins_300Light } from '@expo-google-fonts/poppins'
 import { Image } from 'react-native'
-import { FieldError, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Login as LoginUseCase } from '@domain/use-cases'
 import { Button, ControlledInput, RecoveryPasswordButton } from '@presentation/components'
 import * as yup from 'yup'
@@ -30,8 +30,10 @@ const Login = ({ login }: Props) => {
     mode: 'all'
   })
 
-  const handleLoginData = (data: any) => {
-    console.log(data)
+  const handleLoginData = async (data: { username: string, password: string }) => {
+    const res = await login.execute({ user: data.username, password: data.password})
+
+    console.log(res)
   }
 
   let [fontsLoaded] = useFonts({

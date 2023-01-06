@@ -10,6 +10,15 @@ export class RemoteLogin implements Login {
   ) { }
 
   public async execute(params: Login.Params): Promise<Login.Model> {
+    return new Promise<any>((res, rej) => {
+      setTimeout(() => {
+        res({
+          email: 'marloncastro@wedsys.com.br',
+          name: 'Marlon Castro',
+          token: 'token-jwt' 
+        })
+      }, 2000)
+    })
     const httpResponse = await this.httpClient.request({
       url: this.url,
       method: HttpMethod.POST,
