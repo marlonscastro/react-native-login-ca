@@ -33,7 +33,6 @@ export default function Input({ placeholder, type, error, ...rest }: InputProps)
             : null
         }
       </S.InputBox>
-      <S.ErrorText style={{ color: '#FF4C66', fontSize: 10 }}>{error}</S.ErrorText>
     </S.ContainerInput>
   )
 }

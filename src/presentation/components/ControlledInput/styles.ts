@@ -13,6 +13,5 @@ export const Error = styled.Text`
 
 export const Container = styled.View`
   align-items: center;
-  border-width: 1px;
   width: ${responsiveWidth(81)}px;
 `

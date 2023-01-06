@@ -13,6 +13,7 @@ export const InputBox = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 `
 
 export const Input = styled.TextInput`  
@@ -21,6 +22,3 @@ export const Input = styled.TextInput`
   width: ${responsiveWidth(65)}px;
 `
 
-export const ErrorText = styled.Text`
-  padding-left: 10px;
-`
