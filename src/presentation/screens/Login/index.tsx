@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFonts, Poppins_700Bold, Poppins_300Light } from '@expo-google-fonts/poppins'
 import { Image } from 'react-native'
 import { useForm } from 'react-hook-form'
@@ -25,13 +25,16 @@ const schema = yup.object({
 })
 
 const Login = ({ login }: Props) => {
+  const [loaded, setLoaded] = useState(true)
   const { control, handleSubmit, formState: { errors } } = useForm<LoginData>({
     resolver: yupResolver(schema),
     mode: 'all'
   })
 
   const handleLoginData = async (data: { username: string, password: string }) => {
+    setLoaded(false)
     const res = await login.execute({ user: data.username, password: data.password})
+    setLoaded(true)
 
     console.log(res)
   }
@@ -64,11 +67,11 @@ const Login = ({ login }: Props) => {
           type={InputTypes.password}
           fieldError={errors.password}
           maxLength={20}
-        />
+        /> 
 
         <RecoveryPasswordButton text='Recovery password' />
 
-        <Button text='Login' onPress={handleSubmit(handleLoginData)} />
+        <Button text='Login' enabled={loaded} onPress={handleSubmit(handleLoginData)} />
 
         <S.TitleFooter>
           <S.TextFooter>
