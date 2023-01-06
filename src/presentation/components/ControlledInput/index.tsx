@@ -1,7 +1,7 @@
 import React from 'react'
 import { Control, Controller, FieldError } from 'react-hook-form'
 import Input, { InputProps } from '../Input'
-import { Error } from './styles'
+import { Error, Container } from './styles'
 
 type Props = InputProps & {
   control: Control<any>
@@ -11,7 +11,7 @@ type Props = InputProps & {
 
 export default function ControlledInput({ control, name, fieldError, ...rest }: Props) {
   return (
-    <>
+    <Container>
       <Controller
         name={name}
         control={control}
@@ -26,6 +26,6 @@ export default function ControlledInput({ control, name, fieldError, ...rest }: 
       {
         fieldError && <Error>{fieldError.message}</Error>
       }
-    </>
+    </Container>
   )
 }
